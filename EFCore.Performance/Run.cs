@@ -14,7 +14,9 @@ namespace EFCore.Performance
 		{
 			var builder = new DbContextOptionsBuilder<Storage>().UseInMemoryDatabase(Guid.NewGuid().ToString())
 			                                                    .EnableSensitiveDataLogging();
-			return new Storage(builder.Options).Set<User>().ToArrayAsync();
+			using var storage = new Storage(builder.Options);
+			var result = storage.Set<User>().ToArrayAsync();
+			return result;
 		}
 	}
 }
