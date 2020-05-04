@@ -1,11 +1,4 @@
-using Microsoft.AspNetCore.Hosting.Server;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Threading.Tasks;
 
 namespace EFCore.Performance.MSFTTest
@@ -14,38 +7,18 @@ namespace EFCore.Performance.MSFTTest
 	public sealed class UnitTest2
 	{
 		[TestMethod]
-		public Task TestMethod1() => Execute();
+		public Task TestMethod1() => Run.Default.Execute();
 
 		[TestMethod]
-		public Task TestMethod2() => Execute();
+		public Task TestMethod2() => Run.Default.Execute();
 
 		[TestMethod]
-		public Task TestMethod3() => Execute();
+		public Task TestMethod3() => Run.Default.Execute();
 
 		[TestMethod]
-		public Task TestMethod4() => Execute();
+		public Task TestMethod4() => Run.Default.Execute();
 
 		[TestMethod]
-		public Task TestMethod5() => Execute();
-
-		static async Task Execute()
-		{
-			using var host = new HostBuilder()
-			           .ConfigureServices(x =>
-			                              {
-				                              x.AddSingleton<IServer, TestServer>()
-				                               .AddDbContext<Storage>(builder => builder
-				                                                                 .UseInMemoryDatabase(Guid.NewGuid()
-				                                                                                          .ToString())
-				                                                                 .EnableSensitiveDataLogging())
-				                               .AddIdentityCore<User>()
-				                               .AddEntityFrameworkStores<Storage>();
-			                              })
-			           .Build();
-			await host.StartAsync();
-
-			await host.Services.GetRequiredService<UserManager<User>>()
-			          .CreateAsync(new User {UserName = "SomeUser"}, "*Password10*");
-		}
+		public Task TestMethod5() => Run.Default.Execute();
 	}
 }

@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCore.Performance.NUnit", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCore.Performance.MSFTTest", "EFCore.Performance.MSFTTest\EFCore.Performance.MSFTTest.csproj", "{0917278F-5E9B-4344-9EE9-202C654D08A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCore.Performance", "EFCore.Performance\EFCore.Performance.csproj", "{08601330-1A6B-4446-987B-96D02AC07052}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0917278F-5E9B-4344-9EE9-202C654D08A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0917278F-5E9B-4344-9EE9-202C654D08A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0917278F-5E9B-4344-9EE9-202C654D08A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08601330-1A6B-4446-987B-96D02AC07052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08601330-1A6B-4446-987B-96D02AC07052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08601330-1A6B-4446-987B-96D02AC07052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08601330-1A6B-4446-987B-96D02AC07052}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
