@@ -8,13 +8,16 @@ namespace EFCore.Performance
 	{
 		public static Run Default { get; } = new Run();
 
-		Run() {}
+		Run() : this(new DbContextOptionsBuilder<Storage>().UseInMemoryDatabase(Guid.NewGuid().ToString())
+		                                                   .EnableSensitiveDataLogging().Options) {}
+
+		readonly DbContextOptions<Storage> _options;
+
+		public Run(DbContextOptions<Storage> options) => _options = options;
 
 		public Task Execute()
 		{
-			var builder = new DbContextOptionsBuilder<Storage>().UseInMemoryDatabase(Guid.NewGuid().ToString())
-			                                                    .EnableSensitiveDataLogging();
-			using var storage = new Storage(builder.Options);
+			using var storage = new Storage(_options);
 			var result = storage.Set<User>().ToArrayAsync();
 			return result;
 		}
